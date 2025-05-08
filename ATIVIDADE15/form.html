@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Contato</h2>
+        <form name="formularioContato" onsubmit="return validar(event)">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="comentario">Comentário:</label>
+            <textarea name="comentario" id="comentario" required></textarea>
+
+            <p>Você já visitou esta página antes?</p>
+            <label><input type="radio" name="pesquisa" value="sim"> Sim</label>
+            <label><input type="radio" name="pesquisa" value="nao"> Não</label>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
