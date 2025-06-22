@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filmes</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1><img src="img/pipoca.png" class="icon"> Meus Filmes</h1>
+
+<div class="top-actions">
+  <button class="add" onclick="muda('cadastro')">+ Adicionar Filme</button>
+  <input type="text" id="pesquisa" placeholder="Pesquisar por título.. 🔍" oninput="mostra()">
+</div>
+
+<div id="meus-filmes" class="tela">
+  <div id="lista-filmes"></div>
+</div>
+
+<div id="cadastro" class="tela" style="display:none">
+
+<button class="back" onclick="muda('meus-filmes')">← Voltar</button>
+<h2><img src="img/pipoca.png" class="icon"> Cadastro</h2>
+
+<input type="hidden" id="posterPath">
+<center><img id="poster-preview" style="display:none;max-width:150px;border-radius:10px;margin-bottom:15px"></center>
+
+<form id="form-filme" onsubmit="salvar(event)">
+<div class="form-grid">
+<div class="form-col">
+
+  <label>Título:</label>
+  <div class="search-inline">
+    <input type="text" id="titulo" required>
+    <button type="button" onclick="tmdbManual()">🔎</button>
+  </div>
+
+  <label>Diretor:</label><input type="text" id="diretor">
+  <label>Ano:</label><input type="number" id="ano">
+  <label>Gênero:</label><input type="text" id="genero">
+  <label>Duração:</label><input type="number" id="duracao">
+
+</div>
+
+<div class="form-col">
+  <label>Elenco:</label><input type="text" id="elenco">
+  <label>Classificação:</label><input type="text" id="classificacao">
+  <label>Sinopse:</label><input type="text" id="sinopse">
+  <label>Nota:</label><input type="number" step="0.1" id="notaUsuario">
+  <input type="hidden" id="id">
+  <label>Data:</label><input type="date" id="dataAdicao">
+</div>
+</div>
+
+<button type="submit" class="salvar">Salvar</button>
+</form>
+</div>
+
+<div id="editar" class="tela" style="display:none">
+<button class="back" onclick="muda('meus-filmes')">← Voltar</button>
+<h2><img src="img/pipoca.png" class="icon"><span id="titulo-edicao"></span></h2>
+
+<form id="form-editar" onsubmit="atualizar(event)">
+<div class="form-grid">
+<div class="form-col">
+
+  <label>Diretor:</label><input type="text" id="edit-diretor">
+  <label>Ano:</label><input type="number" id="edit-ano">
+  <label>Gênero:</label><input type="text" id="edit-genero">
+  <label>Duração:</label><input type="number" id="edit-duracao">
+
+</div>
+
+<div class="form-col">
+  <input type="hidden" id="edit-posterPath">
+  <img id="edit-poster-preview" style="display:none;max-width:150px;border-radius:10px;margin-bottom:15px">
+  <label>Elenco:</label><input type="text" id="edit-elenco">
+  <label>Classificação:</label><input type="text" id="edit-classificacao">
+  <label>Sinopse:</label><input type="text" id="edit-sinopse">
+  <label>Nota:</label><input type="number" step="0.1" id="edit-notaUsuario">
+  <input type="hidden" id="edit-id">
+  <label>Data:</label><input type="date" id="edit-dataAdicao">
+</div>
+</div>
+
+<div class="edit-buttons">
+  <button type="submit" class="salvar">Editar</button>
+  <button type="button" class="excluir" onclick="apagar(document.getElementById('edit-id').value)">Excluir</button>
+</div>
+</form>
+</div>
+
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
